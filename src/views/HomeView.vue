@@ -56,14 +56,16 @@
         </v-col>
       </v-row>
     </v-container>
+    <FooterComponent />
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import FooterComponent from "../components/Footer.vue";
 export default {
   name: "Home",
-  components: {},
+  components: { FooterComponent },
   data() {
     return {
       temperaturas: [],
