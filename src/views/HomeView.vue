@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <v-container fluid>
-      <v-row justify="end" class="header">
-        <v-col cols="12" md="6">
+      <v-row justify="center" class="header">
+        <v-col cols="12" md="8">
           <v-banner
             color="#008b8b"
             elevation="7"
@@ -15,6 +15,11 @@
               Carga Gelada <v-icon>mdi-cube</v-icon>
             </h3>
           </v-banner>
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-btn color="#008b8b" elevation="3" icon outlined @click="getData">
+            <v-icon dark> mdi-autorenew </v-icon>
+          </v-btn>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -83,6 +88,7 @@ export default {
 
   methods: {
     async getData() {
+      this.temperaturas = [];
       let res = await axios.get(
         "https://carga-gelada-default-rtdb.firebaseio.com/logs.json"
       );
@@ -114,6 +120,9 @@ export default {
 <style scoped>
 .header {
   margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .content {
   margin: 30px auto;
@@ -124,5 +133,9 @@ export default {
   padding: 10px 30px;
   color: #008b8b;
   font-size: large;
+}
+
+.tolip {
+  border: 1px solid red;
 }
 </style>
